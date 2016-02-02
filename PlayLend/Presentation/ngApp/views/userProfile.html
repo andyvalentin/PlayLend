@@ -1,0 +1,36 @@
+﻿<div class="well">
+    <div class="text-center">
+        <h4>Add a game</h4>
+        <form ng-submit="c.addGame(game)">
+            <label>Game Name</label>
+            <input ng-model="game.name" />
+
+            <label>Number of Players</label>
+            <input ng-model="game.playerRange" />
+
+            <label>Description</label>
+            <input ng-model="game.description" />
+
+
+            <input type="submit" value="submit" class="btn btn-success" />
+
+        </form>
+    </div>
+    <h1 class="text-center">My Games</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Board Game Name</th>
+                <th>Number of Players</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="game in c.boardgames">
+                <td>{{game.name}}</td>
+                <td>{{game.playerRange}}</td>
+                <td><button class="btn-danger" ng-click="c.deleteGame(game.id)">Delete</button></td>
+                <td><button class="btn-default" ng-click="c.editGame(game.id)">Edit Game</button></td>
+        </tbody>
+    </table>
+</div>
